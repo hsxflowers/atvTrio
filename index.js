@@ -33,25 +33,53 @@ let conteudo3 = 0;
         
 
     //Decisão para cada marca vai
+    const li = document.createElement('li')
+    li.innerHTML = `<li id="${venda.codigo1}">${venda.marca1}/${venda.produto1}/${venda.codigo1}/${venda.preco1}</li>`
+
+
+            prod = document.getElementById(conteudo3)
+        
+            if(prod != null){
+            alert("Esse código já existe!")
+            }else{
+
+            var sim = confirm("Deseja realmente adicionar esse produto?")
+
+            if(sim == true){
 
             if(conteudo1 == "Swift"){
-                let swift = document.querySelector("#lista-swift")
-                swift.innerHTML += `<li id="${venda.codigo1}">${venda.marca1}/${venda.produto1}/${venda.codigo1}/${venda.preco1}</li>`
 
-                cliquei = false
+                let swift = document.querySelector("#lista-swift")
+                swift.appendChild(li)
+
+                marca.value = ""
+                produto.value = ""
+                codigo.value = ""
+                preco.value = ""
+                
             }else{
                 if(conteudo1 == "Seara"){
                     let seara = document.querySelector("#lista-seara")
-                    seara.innerHTML += `<li id="${venda.codigo1}">${venda.marca1}/${venda.produto1}/${venda.codigo1}/${venda.preco1}</li>`
-                    cliquei = false
+                    seara.appendChild(li)
+
+                    marca.value = ""
+                    produto.value = ""
+                    codigo.value = ""
+                    preco.value = ""
                 }else{
                     if(conteudo1 == "Friboi"){
                         let friboi = document.querySelector("#lista-friboi")
-                        friboi.innerHTML += `<li "${venda.codigo1}">${venda.marca1}/${venda.produto1}/${venda.codigo1}/${venda.preco1}</li>`
-                        cliquei = false
+                        friboi.appendChild(li)
+
+                        marca.value = ""
+                        produto.value = ""
+                        codigo.value = ""
+                        preco.value = ""
                     }
                 }
             }
+        }
+    }
     }
     
 
@@ -61,14 +89,15 @@ let conteudo3 = 0;
 
  function removeProduto(){
 
+    var sim2 = confirm("Deseja realmente remover esse produto?")
+
     let remover = document.querySelector("#codigo_remover")
     let codigo = remover.value
-
     console.log(codigo)
-    
-    if(conteudo3 == codigo){
-        let excluido = document.getElementById(`${codigo}`)
-        console.log(excluido)
-        excluido.remove()
+
+    if(sim2 == true){
+        let prod = document.getElementById(codigo)
+        prod.remove()
     }
+
  }
